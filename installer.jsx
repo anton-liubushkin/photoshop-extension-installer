@@ -1,9 +1,12 @@
 var panelInfo = {
-    "panel_version": "1.3.2",
-    "panel_name": "UberColumns",
-    "panel_id": "cc.uberplugins.ubercolumns",
-    "author": "UberPlugins",
-    "contact_email": "nvkz.nemo@gmail.com"
+    "panel_version": "1.0.0",
+    "panel_name": "My Panel",
+    // Installer will copy all files
+    // from ../MANUAL-INSTALLATION/panel_id/
+    // to ../CEP/extensions/panel_id/
+    "panel_id": "folder-name",
+    "author": "Me",
+    "contact_email": "example@example.com"
 };
 
 var messages = {
