@@ -1,10 +1,12 @@
+/*
+// Installer will copy all files
+// from: ../MANUAL-INSTALLATION/panel_dir/
+// to: ../CEP/extensions/panel_dir/
+*/
 var panelInfo = {
+    "panel_dir": "com.adobe.my.awesome.panel",
+    "panel_name": "My Awesome Panel",
     "panel_version": "1.0.0",
-    "panel_name": "My Panel",
-    // Installer will copy all files
-    // from ../MANUAL-INSTALLATION/panel_id/
-    // to ../CEP/extensions/panel_id/
-    "panel_id": "folder-name",
     "author": "Me",
     "contact_email": "example@example.com"
 };
@@ -27,7 +29,7 @@ function init() {
     var panelContent = getDirectoryContent(workDirs.from);
 
     if (workDirs.to.exists) {
-        alert("We found old version of " + panelInfo.panel_name + "\nYou need to remove it before installation.\n1. Close Photoshop\n2. After this message, you will see Photoshop extensions directory\n3. Find '" + panelInfo.panel_id + "' folder and DELETE it\n4. Open Photoshop and try to Install again","Old version detected",false);
+        alert("We found old version of " + panelInfo.panel_name + "\nYou need to remove it before installation.\n1. Close Photoshop\n2. After this message, you will see Photoshop extensions directory\n3. Find '" + panelInfo.panel_dir + "' folder and DELETE it\n4. Open Photoshop and try to Install again","Old version detected",false);
         workDirs.to.parent.execute();
         return false
     }
@@ -62,8 +64,8 @@ function checkAppVersion() {
 
 function getWorkDirectroies() {
     var d = {
-        "from": new Folder((File($.fileName).path) + "/MANUAL-INSTALLATION/" + panelInfo.panel_id),
-        "to": new Folder(Folder.userData + "/Adobe/" + (appVersion === 14 ? "CEPServiceManager4" : "CEP") + "/extensions/" + panelInfo.panel_id)
+        "from": new Folder((File($.fileName).path) + "/MANUAL-INSTALLATION/" + panelInfo.panel_dir),
+        "to": new Folder(Folder.userData + "/Adobe/" + (appVersion === 14 ? "CEPServiceManager4" : "CEP") + "/extensions/" + panelInfo.panel_dir)
     };
     return d
 }
